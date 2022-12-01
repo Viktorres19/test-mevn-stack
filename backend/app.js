@@ -15,7 +15,7 @@ app.use(function(req, res, next) {
 })
 
 //database stuff
-const uri = "mongodb+srv://Viktor:<password>@cluster0.qsqj6.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://Viktor:1234@cluster0.qsqj6.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -24,3 +24,18 @@ mongoose.connect(uri, {
   console.log("MongoDB connected")
 })
 .catch(err => console.log(err))
+
+app.use(bodyParser.json())
+
+// routes
+app.get("/", (res, req) => {
+  res.send("yay home page")
+})
+
+const TodosRoute = require('./routes/Todos');
+app.use('/Todos', TodosRoute)
+
+// start server
+app.listen(3000, () => {
+  console.log("Listening at port 3000")
+})
