@@ -37,13 +37,13 @@ router.delete('/delete/:id', async (req, res) => {
 // Update a todo by id
 router.put('/update/:id', async (req, res) => {
   const tUpdate = await Todo.updateOne(
-    { _id: req.params.id },
+    // { _id: req.params.id },
 
-    { $set: req.body }
-    /*  {
+    // { $set: req.body }
+      {
        author: "Bart",
        todo: "Skating"
-     } */
+     }
   )
   res.json(tUpdate)
 })
