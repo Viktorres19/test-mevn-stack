@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   const todos = await Todo.find();
   res.json(todos)
 })
-
+//Here finishes the first part of routing
 // Create new Todo
 router.post('/new', async (req, res) => {
 
